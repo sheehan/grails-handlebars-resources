@@ -7,7 +7,7 @@ import org.grails.plugin.resource.mapper.MapperPhase
 /**
  * @author Matt Sheehan
  *
- * Mapping file to precompile .handlebars files into .js files.
+ * Precompile .handlebars template files into .js files.
  */
 class HandlebarsResourceMapper implements GrailsApplicationAware {
 
