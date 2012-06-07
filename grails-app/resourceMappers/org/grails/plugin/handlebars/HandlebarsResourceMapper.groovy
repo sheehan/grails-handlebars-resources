@@ -1,13 +1,14 @@
-/**
- * @author Matt Sheehan
- *
- * Mapping file to precompile .handlebars files into .js files.
- */
+package org.grails.plugin.handlebars
 
 import org.codehaus.groovy.grails.commons.GrailsApplication
 import org.codehaus.groovy.grails.plugins.support.aware.GrailsApplicationAware
 import org.grails.plugin.resource.mapper.MapperPhase
 
+/**
+ * @author Matt Sheehan
+ *
+ * Mapping file to precompile .handlebars files into .js files.
+ */
 class HandlebarsResourceMapper implements GrailsApplicationAware {
 
     GrailsApplication grailsApplication
