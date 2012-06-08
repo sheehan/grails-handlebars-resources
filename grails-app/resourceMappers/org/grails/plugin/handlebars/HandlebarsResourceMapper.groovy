@@ -20,11 +20,10 @@ class HandlebarsResourceMapper implements GrailsApplicationAware {
     def map(resource, config) {
         Precompiler precompiler = new Precompiler()
         File originalFile = resource.processedFile
-        File input = getOriginalFileSystemFile(resource.sourceUrl);
-        File target = new File(generateCompiledFileFromOriginal(originalFile.absolutePath))
+        File input = getOriginalFileSystemFile(resource.sourceUrl)
 
         if (resource.sourceUrl) {
-            target = new File(generateCompiledFileFromOriginal(originalFile.absolutePath))
+            File target = new File(generateCompiledFileFromOriginal(originalFile.absolutePath))
 
             log.debug "Compiling handlebars file [${originalFile}] into [${target}]"
 
