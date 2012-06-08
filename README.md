@@ -10,6 +10,8 @@ make it available for other resource processing, including minification and bund
 
 ## Usage
 
+### Declaring Resources
+
     application {
         dependsOn 'handlebars_runtime'
         resource url: 'templates/person.handlebars', attrs: [type: 'js'], bundle:'bundle_application'
@@ -17,10 +19,15 @@ make it available for other resource processing, including minification and bund
         resource url:'js/application.js'
     }
 
-### Settings
+#### Settings
 
-*   **dependsOn**: "handlebars" or "handlebars_runtime". If using only precompiled templates, only handlebars_runtime is required.
+*   **dependsOn**: `handlebars` or `handlebars_runtime`. If only using precompiled templates the smaller handlebars_runtime should be used.
 *   **url**: location of the handlebars template file.
-*   **attrs[type]**: must be js
-*   **bundle**: must be set as will not default correctly. To add to default bundle use 'bundle_".
+*   **attrs[type]**: must be `js`.
+*   **bundle**: must be set as will not default correctly. To add to default bundle use `bundle_`.
+
+### Using in the Browser
+
+Template functions are stored in the `Handlebars.templates` object using the relative template name without the extension. If the template file
+is called person.handlebars, then the template function can be accessed from `Handlebars.templates.person`.
 
