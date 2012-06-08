@@ -28,6 +28,8 @@ make it available for other resource processing, including minification and bund
 
 ### Using in the Browser
 
-Template functions are stored in the `Handlebars.templates` object using the relative template name without the extension. If the template file
-is called person.handlebars, then the template function can be accessed from `Handlebars.templates.person`.
+Template functions are stored in the `Handlebars.templates` object using the relative template name without the .handlebars extension. If the template file
+is named person.handlebars, then the template function can be accessed from `Handlebars.templates.person`.
+
+See the [Handlebars.js website](http://handlebarsjs.com/) for more information on using Handlebars template functions.
 

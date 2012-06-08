@@ -35,17 +35,23 @@ function (Handlebars,depth0,helpers,partials,data) {
     void precompile() {
         (1..2).each {
             File input = loadFile("input.${it}.handlebars")
-            File expected = loadFile("ouput.${it}_handlebars.js")
+            File expected = loadFile("output.${it}_handlebars.js")
             File target = File.createTempFile('target', '.js')
 
             precompiler.precompile(input, target)
 
-            assert expected.text == target.text
+            compareIgnoreWhiteSpace expected.text, target.text
         }
     }
 
     private File loadFile(String name) {
         new File(this.getClass().classLoader.getResource(name).file)
+    }
+
+    private compareIgnoreWhiteSpace(s1, s2) {
+        s1 = s1.replaceAll(/\s+/, ' ')
+        s2 = s2.replaceAll(/\s+/, ' ')
+        assert s1 == s2
     }
 
 }
