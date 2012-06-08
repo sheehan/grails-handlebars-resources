@@ -10,7 +10,9 @@ class HandlebarsResourcesGrailsPlugin {
     def author = "Matt Sheehan"
     def authorEmail = "mr.sheehan@gmail.com"
     def description = '''\
-Brief summary/description of the plugin.
+This plug-in supports using Handlebars.js templates with the Grails Resources Plugin. This plugin includes a resource mapper that will precompile
+the template files into JavaScript and make it available for other resource processing, including minification and bundling.
+The Handlebars.js resource files are also included.
 '''
     def documentation = "http://grails.org/plugin/handlebars-resources"
     def license = "APACHE"
