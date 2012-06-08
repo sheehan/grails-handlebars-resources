@@ -40,18 +40,12 @@ function (Handlebars,depth0,helpers,partials,data) {
 
             precompiler.precompile(input, target)
 
-            compareIgnoreWhiteSpace expected.text, target.text
+            assert expected.text == target.text
         }
     }
 
     private File loadFile(String name) {
         new File(this.getClass().classLoader.getResource(name).file)
-    }
-
-    private compareIgnoreWhiteSpace(s1, s2) {
-        s1 = s1.replaceAll(/\s+/, ' ')
-        s2 = s2.replaceAll(/\s+/, ' ')
-        assert s1 == s2
     }
 
 }
