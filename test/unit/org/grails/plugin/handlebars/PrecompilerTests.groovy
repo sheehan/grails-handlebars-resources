@@ -33,13 +33,19 @@ function (Handlebars,depth0,helpers,partials,data) {
 
     @Test
     void precompile() {
-        File input = new File(this.getClass().classLoader.getResource('input.1.handlebars').file)
-        File expected = new File(this.getClass().classLoader.getResource('ouput.1_handlebars.js').file)
-        File target = File.createTempFile('target', '.js')
+        (1..2).each {
+            File input = loadFile("input.${it}.handlebars")
+            File expected = loadFile("ouput.${it}_handlebars.js")
+            File target = File.createTempFile('target', '.js')
 
-        precompiler.precompile(input, target)
+            precompiler.precompile(input, target)
 
-        assert expected.text == target.text
+            assert expected.text == target.text
+        }
+    }
+
+    private File loadFile(String name) {
+        new File(this.getClass().classLoader.getResource(name).file)
     }
 
 }
