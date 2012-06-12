@@ -24,7 +24,7 @@ make it available for other resource processing, including minification and bund
 *   **dependsOn**: `handlebars` or `handlebars_runtime`. If only using precompiled templates the smaller handlebars_runtime should be used.
 *   **url**: location of the handlebars template file.
 *   **attrs[type]**: must be `js`.
-*   **bundle**: must be set as will not default correctly. To add to default bundle use `bundle_`.
+*   **bundle**: must be set as will not default correctly. To add to default bundle use `bundle_<module name>`.
 
 ### Using in the Browser
 
