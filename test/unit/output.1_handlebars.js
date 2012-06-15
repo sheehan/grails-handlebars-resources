@@ -1,7 +1,7 @@
 
 (function(){
     var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
-    templates['input.1'] = template(function (Handlebars,depth0,helpers,partials,data) {
+    templates['input'] = template(function (Handlebars,depth0,helpers,partials,data) {
   helpers = helpers || Handlebars.helpers;
   var buffer = "", stack1, foundHelper, self=this, functionType="function", helperMissing=helpers.helperMissing, undef=void 0, escapeExpression=this.escapeExpression;
 

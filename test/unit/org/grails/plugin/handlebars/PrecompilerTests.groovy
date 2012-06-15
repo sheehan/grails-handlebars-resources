@@ -38,7 +38,7 @@ function (Handlebars,depth0,helpers,partials,data) {
             File expected = loadFile("output.${it}_handlebars.js")
             File target = File.createTempFile('target', '.js')
 
-            precompiler.precompile(input, target)
+            precompiler.precompile(input, target, 'input')
 
             assert expected.text == target.text
         }

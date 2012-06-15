@@ -10,8 +10,11 @@ class Precompiler {
     private Scriptable scope
     private Function precompile
 
-    Precompiler() {
-        ClassLoader classLoader = getClass().getClassLoader()
+    String root = '/templates/'
+    String pathSeparator = '.'
+
+    Precompiler(Map options = [:]) {
+        ClassLoader classLoader = getClass().classLoader
         URL handlebars = classLoader.getResource('handlebars-1.0.0.beta.6.js')
 
         Context cx = Context.enter()
@@ -25,10 +28,7 @@ class Precompiler {
         Context.exit();
     }
 
-    void precompile(File input, File target) {
-        String templateName = input.name
-        templateName = templateName.replaceAll(/\.handlebars$/, '')
-
+    void precompile(File input, File target, templateName) {
         String compiledTemplate = precompileTemplate(input.text)
 
         String output = """
@@ -41,10 +41,10 @@ class Precompiler {
     }
 
     String precompileTemplate(String contents) {
-        call(precompile, contents)
+        call precompile, contents
     }
 
     private synchronized String call(Function fn, Object[] args) {
-        (String) Context.call(null, fn, scope, scope, args);
+        Context.call(null, fn, scope, scope, args)
     }
 }

@@ -28,8 +28,40 @@ make it available for other resource processing, including minification and bund
 
 ### Using in the Browser
 
-Template functions are stored in the `Handlebars.templates` object using the relative template name without the .handlebars extension. If the template file
-is named person.handlebars, then the template function can be accessed from `Handlebars.templates.person`.
+Template functions are stored in the `Handlebars.templates` object using the template name. If the template name is
+`person.show`, then the template function can be accessed from `Handlebars.templates.['person.show']`. See the Template Names section for how template names are calculated.
 
 See the [Handlebars.js website](http://handlebarsjs.com/) for more information on using Handlebars template functions.
 
+## Template Names
+
+Template names are based on the file name and path. The root directory of the templates and the delimiter used can be specified in the configuration.
+
+### Examples
+
+<table>
+  <tr>
+    <th>templatesRoot</th> <th>templatesPathSeparator</th> <th>File</th> <th>Template Name</th>
+  </tr>
+  <tr>
+    <td>(default)</td> <td>(default)</td> <td>/web-app/templates/foo.handlebars</td> <td>templates.foo</td>
+    <td>templates</td> <td>(default)</td> <td>/web-app/templates/foo.handlebars</td> <td>foo</td>
+    <td>templates</td> <td>(default)</td> <td>/web-app/templates/person/show.handlebars</td> <td>person.show</td>
+    <td>templates</td> <td>-</td> <td>/web-app/templates/person/show.handlebars</td> <td>person-show</td>
+  </tr>
+</table>
+
+## Configuration
+
+All configuration variables should be relative to:
+
+    grails.resources.mappers.handlebars
+
+*   **templatesRoot**: The root folder of the templates relative to `web-app`. This value will be stripped from template paths before calculating the template name. Default is `/`
+*   **templatesPathSeparator**: The delimiter to use for template names. Default is `.`
+
+## Changelog
+
+#### v0.2
+
+*   **BREAKING** Updated template naming scheme to handle nested templates in a manner similar to the [ember-rails plugin](https://github.com/emberjs/ember-rails)
