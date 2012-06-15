@@ -36,7 +36,7 @@ See the [Handlebars.js website](http://handlebarsjs.com/) for more information o
 ## Template Names
 
 Template names are based on the resource URL. If the URL is `templates/foo.handlebars`, then the template name will be `templates.foo`.
-Note that the `.handlebars` extension is removed.
+Note that the `.handlebars` extension is removed and the path is delimited with `.`.
 
 The default path separator is `.`. If you want to change it, you can specify a value for `templatesPathSeparator` in the configuration. For example,
 adding
