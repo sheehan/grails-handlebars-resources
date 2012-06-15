@@ -45,8 +45,14 @@ Template names are based on the file name and path. The root directory of the te
   </tr>
   <tr>
     <td>(default)</td> <td>(default)</td> <td>/web-app/templates/foo.handlebars</td> <td>templates.foo</td>
+  </tr>
+  <tr>
     <td>templates</td> <td>(default)</td> <td>/web-app/templates/foo.handlebars</td> <td>foo</td>
+  </tr>
+  <tr>
     <td>templates</td> <td>(default)</td> <td>/web-app/templates/person/show.handlebars</td> <td>person.show</td>
+  </tr>
+  <tr>
     <td>templates</td> <td>-</td> <td>/web-app/templates/person/show.handlebars</td> <td>person-show</td>
   </tr>
 </table>
