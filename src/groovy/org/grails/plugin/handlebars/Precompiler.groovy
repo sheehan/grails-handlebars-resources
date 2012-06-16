@@ -10,9 +10,6 @@ class Precompiler {
     private Scriptable scope
     private Function precompile
 
-    String root = '/templates/'
-    String pathSeparator = '.'
-
     Precompiler(Map options = [:]) {
         ClassLoader classLoader = getClass().classLoader
         URL handlebars = classLoader.getResource('handlebars-1.0.0.beta.6.js')
