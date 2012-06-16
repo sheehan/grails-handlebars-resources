@@ -38,7 +38,6 @@ class HandlebarsResourceMapper implements GrailsApplicationAware {
                 resource.sourceUrlExtension = 'js'
                 resource.contentType = 'text/javascript'
                 resource.updateActualUrlFromProcessedFile()
-                resource.attributes.type = 'js'
             } catch (e) {
                 log.error "error precompiling handlebars file: ${originalFile}", e
             }
