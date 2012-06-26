@@ -45,8 +45,8 @@ class HandlebarsResourceMapper implements GrailsApplicationAware {
     }
 
     String calculateTemplateName(ResourceMeta resource, config) {
-        String pathSeparator =  getString(config, 'templatesPathSeparator', '.')
-        String root =  getString(config, 'templatesRoot')
+        String pathSeparator = getString(config, 'templatesPathSeparator', '/')
+        String root = getString(config, 'templatesRoot')
 
         String templateName = resource.sourceUrl
         if (root) {
