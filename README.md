@@ -62,10 +62,14 @@ All configuration variables should be relative to:
 
 ## Changelog
 
+### v0.3.1
+
+*   fixed issue #2
+
 ### v0.3
 
-*   **BREAKING** changed default templatesPathSeparator to `/`
+*   changed default templatesPathSeparator to `/`
 
 ### v0.2
 
-*   **BREAKING** Updated template naming scheme to handle nested templates in a manner similar to the [ember-rails plugin](https://github.com/emberjs/ember-rails)
+*   Updated template naming scheme to handle nested templates in a manner similar to the [ember-rails plugin](https://github.com/emberjs/ember-rails)
