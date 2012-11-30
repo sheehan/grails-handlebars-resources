@@ -60,22 +60,3 @@ All configuration variables should be relative to:
 *   **templatesRoot**: The root folder of the templates relative to `web-app`. This value will be stripped from template paths when calculating the template name. Default is none.
 *   **templatesPathSeparator**: The delimiter to use for template names. Default is `/`
 *   **includes**: The file patterns to include. Default is `['**/*.handlebars', "**/*.hbs"]`
-
-## Changelog
-
-### v0.3.2
-
-*   Added support for any file extension. Added .hbs to defaults.
-*   Upgraded to handlebars.js v1.0.rc.1
-
-### v0.3.1
-
-*   Fixed issue #2.
-
-### v0.3
-
-*   Changed default templatesPathSeparator to `/`.
-
-### v0.2
-
-*   Updated template naming scheme to handle nested templates in a manner similar to the [ember-rails plugin](https://github.com/emberjs/ember-rails).
