@@ -66,6 +66,7 @@ All configuration variables should be relative to:
 ### v0.3.2
 
 *   Added support for any file extension. Added .hbs to defaults.
+*   Upgraded to handlebars.js v1.0.rc.1
 
 ### v0.3.1
 
