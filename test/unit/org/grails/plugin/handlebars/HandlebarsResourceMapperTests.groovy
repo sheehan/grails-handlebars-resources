@@ -24,6 +24,9 @@ class HandlebarsResourceMapperTests {
         resource.sourceUrl = '/templates/test.handlebars'
         assert 'templates/test' == mapper.calculateTemplateName(resource, config)
 
+        resource.sourceUrl = '/templates/test.hbs'
+        assert 'templates/test' == mapper.calculateTemplateName(resource, config)
+
         resource.sourceUrl = '/js/test.handlebars'
         assert 'js/test' == mapper.calculateTemplateName(resource, config)
 
@@ -46,10 +49,6 @@ class HandlebarsResourceMapperTests {
         config.templatesRoot = 'templates'
         resource.sourceUrl = '/js/templates/test.handlebars'
         assert 'js/templates/test' == mapper.calculateTemplateName(resource, config)
-
-        config.templatesRoot = 'templates'
-        resource.sourceUrl = '/templates/test.html'
-        assert 'test.html' == mapper.calculateTemplateName(resource, config)
 
         config.templatesRoot = 'templates'
         config.templatesPathSeparator = '-'

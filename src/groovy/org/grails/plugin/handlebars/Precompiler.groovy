@@ -12,7 +12,7 @@ class Precompiler {
 
     Precompiler(Map options = [:]) {
         ClassLoader classLoader = getClass().classLoader
-        URL handlebars = classLoader.getResource('handlebars-1.0.0.beta.6.js')
+        URL handlebars = classLoader.getResource('handlebars-1.0.rc.1.js')
 
         Context cx = Context.enter()
         cx.optimizationLevel = 9

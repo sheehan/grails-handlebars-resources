@@ -16,7 +16,7 @@ class HandlebarsResourceMapper implements GrailsApplicationAware {
 
     def phase = MapperPhase.GENERATION
 
-    static defaultIncludes = ['**/*.handlebars']
+    static defaultIncludes = ['**/*.handlebars', "**/*.hbs"]
 
     def map(ResourceMeta resource, config) {
 
@@ -60,8 +60,13 @@ class HandlebarsResourceMapper implements GrailsApplicationAware {
                 templateName -= root
             }
         }
-        templateName = templateName.replaceAll(/(?i)\.handlebars$/, '')
+
+        int extensionIndex = templateName.lastIndexOf('.')
+        templateName = templateName[0..<extensionIndex]
+
         templateName.split('/').findAll().join(pathSeparator)
+
+
     }
 
     private String getString(Map config, String key, String defaultVal = null) {
@@ -69,7 +74,10 @@ class HandlebarsResourceMapper implements GrailsApplicationAware {
     }
 
     private String generateCompiledFileFromOriginal(String original) {
-        original.replaceAll(/(?i)\.handlebars$/, '_handlebars.js')
+        int index = original.lastIndexOf('.')
+        String baseName = original[0..<index]
+        String extension = original[index+1..-1]
+        "${baseName}_${extension}.js"
     }
 
     private File getOriginalFileSystemFile(String sourcePath) {

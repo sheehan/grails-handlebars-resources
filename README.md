@@ -36,7 +36,7 @@ See the [Handlebars.js website](http://handlebarsjs.com/) for more information o
 ## Template Names
 
 Template names are based on the resource URL. If the URL is `templates/foo.handlebars`, then the template name will be `templates/foo`.
-Note that the `.handlebars` extension is removed.
+Note that the extension is removed.
 
 The default path separator is `/`. If you want to change it, you can specify a value for `templatesPathSeparator` in the configuration. For example,
 adding
@@ -59,17 +59,22 @@ All configuration variables should be relative to:
 
 *   **templatesRoot**: The root folder of the templates relative to `web-app`. This value will be stripped from template paths when calculating the template name. Default is none.
 *   **templatesPathSeparator**: The delimiter to use for template names. Default is `/`
+*   **includes**: The file patterns to include. Default is `['**/*.handlebars', "**/*.hbs"]`
 
 ## Changelog
 
+### v0.3.2
+
+*   Added support for any file extension. Added .hbs to defaults.
+
 ### v0.3.1
 
-*   fixed issue #2
+*   Fixed issue #2.
 
 ### v0.3
 
-*   changed default templatesPathSeparator to `/`
+*   Changed default templatesPathSeparator to `/`.
 
 ### v0.2
 
-*   Updated template naming scheme to handle nested templates in a manner similar to the [ember-rails plugin](https://github.com/emberjs/ember-rails)
+*   Updated template naming scheme to handle nested templates in a manner similar to the [ember-rails plugin](https://github.com/emberjs/ember-rails).

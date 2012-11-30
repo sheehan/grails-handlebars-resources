@@ -16,22 +16,6 @@ class PrecompilerTests {
     }
 
     @Test
-    void precompileTemplate() {
-        String expected = """
-function (Handlebars,depth0,helpers,partials,data) {
-  helpers = helpers || Handlebars.helpers;
-  var foundHelper, self=this;
-
-
-  return "<div>Simple</div>";}
-        """
-
-        String compiledTemplate = precompiler.precompileTemplate('<div>Simple</div>')
-
-        assert compiledTemplate.trim() == expected.trim()
-    }
-
-    @Test
     void precompile() {
         (1..2).each {
             File input = loadFile("input.${it}.handlebars")
@@ -40,7 +24,7 @@ function (Handlebars,depth0,helpers,partials,data) {
 
             precompiler.precompile(input, target, 'input')
 
-            assert expected.text == target.text
+            assert expected.text.trim() == target.text.trim()
         }
     }
 
