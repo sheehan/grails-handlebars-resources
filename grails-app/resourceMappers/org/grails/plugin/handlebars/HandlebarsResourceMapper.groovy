@@ -1,5 +1,6 @@
 package org.grails.plugin.handlebars
 
+import org.apache.commons.io.FilenameUtils
 import org.codehaus.groovy.grails.commons.GrailsApplication
 import org.codehaus.groovy.grails.plugins.support.aware.GrailsApplicationAware
 import org.grails.plugin.resource.mapper.MapperPhase
@@ -60,13 +61,8 @@ class HandlebarsResourceMapper implements GrailsApplicationAware {
                 templateName -= root
             }
         }
-
-        int extensionIndex = templateName.lastIndexOf('.')
-        templateName = templateName[0..<extensionIndex]
-
+        templateName = FilenameUtils.removeExtension(templateName)
         templateName.split('/').findAll().join(pathSeparator)
-
-
     }
 
     private String getString(Map config, String key, String defaultVal = null) {
@@ -74,9 +70,8 @@ class HandlebarsResourceMapper implements GrailsApplicationAware {
     }
 
     private String generateCompiledFileFromOriginal(String original) {
-        int index = original.lastIndexOf('.')
-        String baseName = original[0..<index]
-        String extension = original[index+1..-1]
+        String baseName = FilenameUtils.removeExtension(original)
+        String extension = FilenameUtils.getExtension(original)
         "${baseName}_${extension}.js"
     }
 
