@@ -4,6 +4,8 @@ This plug-in supports using [Handlebars.js](http://handlebarsjs.com/) templates 
 This plugin includes a resource mapper that will [precompile](http://handlebarsjs.com/precompilation.html) the template files into JavaScript and
 make it available for other resource processing, including minification and bundling. The Handlebars.js resource files are also included.
 
+[![Build Status](https://buildhive.cloudbees.com/job/sheehan/job/grails-handlebars-resources/badge/icon)](https://buildhive.cloudbees.com/job/sheehan/job/grails-handlebars-resources/)
+
 ## Installation
 
     grails install-plugin handlebars-resources
