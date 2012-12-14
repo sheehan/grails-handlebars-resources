@@ -10,7 +10,7 @@ class Precompiler {
     private Scriptable scope
     private Function precompile
 
-    Precompiler(Map options = [:]) {
+    Precompiler() {
         ClassLoader classLoader = getClass().classLoader
         URL handlebars = classLoader.getResource('handlebars-1.0.rc.1.js')
 
@@ -25,16 +25,9 @@ class Precompiler {
         Context.exit();
     }
 
-    void precompile(File input, File target, templateName) {
+    void precompile(File input, File target, String templateName) {
         String compiledTemplate = precompileTemplate(input.text)
-
-        String output = """
-(function(){
-    var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
-    templates['$templateName'] = template($compiledTemplate);
-}());
-"""
-        target.write output
+        target.write wrapTemplate(templateName, compiledTemplate)
     }
 
     String precompileTemplate(String contents) {
@@ -42,6 +35,15 @@ class Precompiler {
     }
 
     private synchronized String call(Function fn, Object[] args) {
-        Context.call(null, fn, scope, scope, args)
+        Context.call null, fn, scope, scope, args
+    }
+
+    def wrapTemplate = { String templateName, String compiledTemplate ->
+        """
+(function(){
+    var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
+    templates['$templateName'] = template($compiledTemplate);
+}());
+"""
     }
 }

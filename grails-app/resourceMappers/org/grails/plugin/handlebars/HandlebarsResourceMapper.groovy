@@ -22,6 +22,9 @@ class HandlebarsResourceMapper implements GrailsApplicationAware {
     def map(ResourceMeta resource, config) {
 
         Precompiler precompiler = new Precompiler()
+        if (config.wrapTemplate instanceof Closure) {
+            precompiler.wrapTemplate = config.wrapTemplate
+        }
         File originalFile = resource.processedFile
         File input = getOriginalFileSystemFile(resource.sourceUrl)
 

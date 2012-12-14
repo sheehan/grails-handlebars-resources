@@ -28,6 +28,21 @@ class PrecompilerTests {
         }
     }
 
+
+    @Test
+    void precompile_customWrap() {
+        precompiler.wrapTemplate = { String templateName, String compiledTemplate ->
+            println compiledTemplate
+            "xxx$templateName"
+        }
+        File input = File.createTempFile('input', '.hbs')
+        input << 'abc'
+        File target = File.createTempFile('target', '.js')
+        precompiler.precompile(input, target, 'name')
+
+        assert "xxxname" == target.text
+    }
+
     private File loadFile(String name) {
         new File(this.getClass().classLoader.getResource(name).file)
     }
