@@ -1,3 +1,7 @@
+### v0.3.3
+
+*   Added config option for wrapTemplate closure.
+
 ### v0.3.2
 
 *   Added support for any file extension. Added .hbs to defaults.

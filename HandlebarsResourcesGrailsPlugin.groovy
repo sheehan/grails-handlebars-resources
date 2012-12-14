@@ -1,5 +1,5 @@
 class HandlebarsResourcesGrailsPlugin {
-    def version = "0.3.2"
+    def version = "0.3.3"
     def grailsVersion = "1.3.7 > *"
     def dependsOn = [resources: "* > 1.2-RC1"]
     def loadAfter = ['resources']
