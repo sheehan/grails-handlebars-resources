@@ -13,6 +13,7 @@ class PrecompilerTests {
     @Before
     void setUp() {
         precompiler = new Precompiler()
+        precompiler.init()
     }
 
     @Test
@@ -27,7 +28,6 @@ class PrecompilerTests {
             assert expected.text.trim() == target.text.trim()
         }
     }
-
 
     @Test
     void precompile_customWrap() {

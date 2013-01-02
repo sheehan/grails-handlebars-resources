@@ -14,6 +14,7 @@ import org.grails.plugin.resource.ResourceMeta
 class HandlebarsResourceMapper implements GrailsApplicationAware {
 
     GrailsApplication grailsApplication
+    Precompiler handlebarsPrecompiler
 
     def phase = MapperPhase.GENERATION
 
@@ -21,10 +22,6 @@ class HandlebarsResourceMapper implements GrailsApplicationAware {
 
     def map(ResourceMeta resource, config) {
 
-        Precompiler precompiler = new Precompiler()
-        if (config.wrapTemplate instanceof Closure) {
-            precompiler.wrapTemplate = config.wrapTemplate
-        }
         File originalFile = resource.processedFile
         File input = getOriginalFileSystemFile(resource.sourceUrl)
 
@@ -36,7 +33,7 @@ class HandlebarsResourceMapper implements GrailsApplicationAware {
             log.debug "Compiling handlebars file [${originalFile}] into [${target}]"
 
             try {
-                precompiler.precompile input, target, templateName
+                handlebarsPrecompiler.precompile input, target, templateName
 
                 resource.processedFile = target
                 resource.sourceUrlExtension = 'js'

@@ -5,12 +5,15 @@ import org.mozilla.javascript.Function
 import org.mozilla.javascript.Context
 import org.mozilla.javascript.tools.shell.Global
 
+import javax.annotation.PostConstruct
+
 class Precompiler {
 
     private Scriptable scope
     private Function precompile
 
-    Precompiler() {
+    @PostConstruct
+    void init() {
         ClassLoader classLoader = getClass().classLoader
         URL handlebars = classLoader.getResource('handlebars-1.0.rc.1.js')
 
@@ -26,16 +29,12 @@ class Precompiler {
     }
 
     void precompile(File input, File target, String templateName) {
-        String compiledTemplate = precompileTemplate(input.text)
+        String compiledTemplate = callPrecompile(input.text)
         target.write wrapTemplate(templateName, compiledTemplate)
     }
 
-    String precompileTemplate(String contents) {
-        call precompile, contents
-    }
-
-    private synchronized String call(Function fn, Object[] args) {
-        Context.call null, fn, scope, scope, args
+    private synchronized String callPrecompile(Object[] args) {
+        Context.call null, precompile, scope, scope, args
     }
 
     def wrapTemplate = { String templateName, String compiledTemplate ->
