@@ -1,3 +1,7 @@
+### v0.3.4
+
+*   Convert Precompiler to be a Spring bean for performance reasons.
+
 ### v0.3.3
 
 *   Added config option for wrapTemplate closure.
