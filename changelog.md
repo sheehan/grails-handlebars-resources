@@ -1,3 +1,7 @@
+### v0.3.5
+
+*   Pull request from chronodm for issue #5.
+
 ### v0.3.4
 
 *   Convert Precompiler to be a Spring bean for performance reasons.
