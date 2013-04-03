@@ -27,16 +27,16 @@ class Precompiler {
         scope = cx.initStandardObjects(global)
         cx.evaluateString scope, handlebars.text, handlebars.file, 1, null
 
-		precompile = scope.get("Handlebars", scope).get("precompile", scope)
-		options = new NativeObject()
-		if(extraKnownHelpers){
-			NativeObject extra = new NativeObject()
-			extraKnownHelpers.each{
-				extra.defineProperty(it, true, NativeObject.READONLY)
-			}
-			options.defineProperty("knownHelpers", extra, NativeObject.READONLY)
-		}
-		Context.exit();
+        precompile = scope.get("Handlebars", scope).get("precompile", scope)
+        options = new NativeObject()
+        if(extraKnownHelpers){
+            NativeObject extra = new NativeObject()
+            extraKnownHelpers.each{
+                extra.defineProperty(it, true, NativeObject.READONLY)
+            }
+            options.defineProperty("knownHelpers", extra, NativeObject.READONLY)
+        }
+        Context.exit();
     }
 
     void precompile(File input, File target, String templateName) {

@@ -23,10 +23,10 @@ The Handlebars.js resource files are also included.
         def handlebarsConfig = application.config.grails?.resources?.mappers?.handlebars
 
         handlebarsPrecompiler(org.grails.plugin.handlebars.Precompiler){
-			if(handlebarsConfig?.extraKnownHelpers){
-				extraKnownHelpers = handlebarsConfig?.extraKnownHelpers
-			}
-		}
+            if(handlebarsConfig?.extraKnownHelpers){
+                extraKnownHelpers = handlebarsConfig?.extraKnownHelpers
+            }
+        }
 
         if (handlebarsConfig?.wrapTemplate instanceof Closure) {
             handlebarsPrecompiler.wrapTemplate = handlebarsConfig?.wrapTemplate
