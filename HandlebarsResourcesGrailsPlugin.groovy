@@ -22,7 +22,11 @@ The Handlebars.js resource files are also included.
     def doWithSpring = { ->
         def handlebarsConfig = application.config.grails?.resources?.mappers?.handlebars
 
-        handlebarsPrecompiler(org.grails.plugin.handlebars.Precompiler)
+        handlebarsPrecompiler(org.grails.plugin.handlebars.Precompiler){
+            if(handlebarsConfig?.extraKnownHelpers){
+                extraKnownHelpers = handlebarsConfig?.extraKnownHelpers
+            }
+        }
 
         if (handlebarsConfig?.wrapTemplate instanceof Closure) {
             handlebarsPrecompiler.wrapTemplate = handlebarsConfig?.wrapTemplate
