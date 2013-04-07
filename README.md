@@ -62,6 +62,7 @@ All configuration variables should be relative to:
 *   **templatesRoot**: The root folder of the templates relative to `web-app`. This value will be stripped from template paths when calculating the template name. Default is none.
 *   **templatesPathSeparator**: The delimiter to use for template names. Default is `/`
 *   **includes**: The file patterns to include. Default is `['**/*.handlebars', "**/*.hbs"]`
+*   **extraKnownHelpers**: List of extra helpers that are available at runtime. Default is none.
 *   **wrapTemplate**: Closure that determines how the template is wrapped. Takes the template name and compiled template as arguments. Useful if you want to change or optimize the variable assignments. Default is:
 
         { String templateName, String compiledTemplate ->
