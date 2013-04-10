@@ -1,4 +1,4 @@
-### v0.3.5
+### v0.3.6
 
 *   Pull request from trashhalo to add known helpers during precompilation (issue #8).
 
