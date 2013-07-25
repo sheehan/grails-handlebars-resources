@@ -6,10 +6,6 @@ make it available for other resource processing, including minification and bund
 
 [![Build Status](https://buildhive.cloudbees.com/job/sheehan/job/grails-handlebars-resources/badge/icon)](https://buildhive.cloudbees.com/job/sheehan/job/grails-handlebars-resources/)
 
-## Installation
-
-    grails install-plugin handlebars-resources
-
 ## Usage
 
 ### Declaring Resources
@@ -25,7 +21,7 @@ make it available for other resource processing, including minification and bund
 
 *   **dependsOn**: `handlebars` or `handlebars_runtime`. If only using precompiled templates the smaller handlebars_runtime should be used.
 *   **url**: location of the handlebars template file.
-*   **attrs[type]**: must be `js`.
+*   **attrs[type]**: must be set to `js`. If the file extension is `.handlebars` or `.hbs` this setting is not necessary.
 *   **bundle**: must be set as will not default correctly. To add to default bundle use `bundle_<module name>`.
 
 ### Using in the Browser
