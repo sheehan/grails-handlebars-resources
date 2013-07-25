@@ -27,7 +27,7 @@ class HandlebarsResourceMapper implements GrailsApplicationAware {
 
         String templateName = calculateTemplateName(resource, config)
 
-        if (resource.sourceUrl) {
+        if (resource.sourceUrl && input.exists()) {
             File target = new File(generateCompiledFileFromOriginal(originalFile.absolutePath))
 
             log.debug "Compiling handlebars file [${originalFile}] into [${target}]"
