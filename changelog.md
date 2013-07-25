@@ -1,3 +1,9 @@
+### v1.0
+
+*   Pull request from ghquant to update handlebars version to 1.0 Final.
+*   Added handlebars and hbs to the supported types so you don't need to declare the type as js.
+*   Fixed issue #12.
+
 ### v0.3.6
 
 *   Pull request from trashhalo to add known helpers during precompilation (issue #8).
