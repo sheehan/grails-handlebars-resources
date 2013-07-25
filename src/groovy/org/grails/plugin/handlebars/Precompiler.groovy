@@ -18,7 +18,7 @@ class Precompiler {
     @PostConstruct
     void init() {
         ClassLoader classLoader = getClass().classLoader
-        URL handlebars = classLoader.getResource('handlebars-1.0.rc.1.js')
+        URL handlebars = classLoader.getResource('handlebars-1.0.js')
 
         Context cx = Context.enter()
         cx.optimizationLevel = 9
