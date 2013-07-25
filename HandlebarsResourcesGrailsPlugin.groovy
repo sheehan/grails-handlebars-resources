@@ -1,5 +1,8 @@
+import org.grails.plugin.resource.ResourceProcessor
+import org.grails.plugin.resource.ResourceTagLib
+
 class HandlebarsResourcesGrailsPlugin {
-    def version = "0.3.6"
+    def version = "1.0"
     def grailsVersion = "1.3.7 > *"
     def dependsOn = [resources: "* > 1.2-RC1"]
     def loadAfter = ['resources']
@@ -20,6 +23,13 @@ The Handlebars.js resource files are also included.
     def scm = [ url: "https://github.com/sheehan/grails-handlebars-resources" ]
 
     def doWithSpring = { ->
+        ['handlebars', 'hbs'].each { String type ->
+            ResourceTagLib.SUPPORTED_TYPES[type] = [type:'text/javascript', writer:'js']
+            ResourceProcessor.DEFAULT_MODULE_SETTINGS[type] = [
+                disposition: 'defer'
+            ]
+        }
+
         def handlebarsConfig = application.config.grails?.resources?.mappers?.handlebars
 
         handlebarsPrecompiler(org.grails.plugin.handlebars.Precompiler){
