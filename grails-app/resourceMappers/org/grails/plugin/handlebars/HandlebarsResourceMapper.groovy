@@ -3,6 +3,7 @@ package org.grails.plugin.handlebars
 import org.apache.commons.io.FilenameUtils
 import org.codehaus.groovy.grails.commons.GrailsApplication
 import org.codehaus.groovy.grails.plugins.support.aware.GrailsApplicationAware
+import org.grails.plugin.resource.AggregatedResourceMeta
 import org.grails.plugin.resource.mapper.MapperPhase
 import org.grails.plugin.resource.ResourceMeta
 
@@ -21,6 +22,11 @@ class HandlebarsResourceMapper implements GrailsApplicationAware {
     static defaultIncludes = ['**/*.handlebars', "**/*.hbs"]
 
     def map(ResourceMeta resource, config) {
+
+        //do want to try and do anything to a bundled resource
+        if (resource instanceof AggregatedResourceMeta){
+            return
+        }
 
         File originalFile = resource.processedFile
         File input = getOriginalFileSystemFile(resource.sourceUrl)
