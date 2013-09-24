@@ -1,4 +1,8 @@
-### v1.0
+### v1.0.1
+
+*   Pull request #14 from roguejammin to skip AggregatedResources.
+
+### v1.0.0
 
 *   Pull request from ghquant to update handlebars version to 1.0 Final.
 *   Added handlebars and hbs to the supported types so you don't need to declare the type as js.
