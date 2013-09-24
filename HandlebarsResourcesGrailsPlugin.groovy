@@ -2,7 +2,7 @@ import org.grails.plugin.resource.ResourceProcessor
 import org.grails.plugin.resource.ResourceTagLib
 
 class HandlebarsResourcesGrailsPlugin {
-    def version = "1.0"
+    def version = "1.0.1"
     def grailsVersion = "1.3.7 > *"
     def dependsOn = [resources: "* > 1.2-RC1"]
     def loadAfter = ['resources']
