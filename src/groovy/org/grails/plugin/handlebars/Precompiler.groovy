@@ -18,7 +18,7 @@ class Precompiler {
     @PostConstruct
     void init() {
         ClassLoader classLoader = getClass().classLoader
-        URL handlebars = classLoader.getResource('handlebars-1.0.js')
+        URL handlebars = classLoader.getResource('handlebars-v1.3.0.js')
 
         Context cx = Context.enter()
         cx.optimizationLevel = 9
@@ -36,7 +36,7 @@ class Precompiler {
             }
             options.defineProperty("knownHelpers", extra, NativeObject.READONLY)
         }
-        Context.exit();
+        Context.exit()
     }
 
     void precompile(File input, File target, String templateName) {

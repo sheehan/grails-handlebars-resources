@@ -25,6 +25,8 @@ class PrecompilerTests {
 
             precompiler.precompile(input, target, 'input')
 
+            println expected.text.trim()
+            println target.text.trim()
             assert expected.text.trim() == target.text.trim()
         }
     }
